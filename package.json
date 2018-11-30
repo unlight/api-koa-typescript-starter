@@ -1,18 +1,18 @@
 {
   "name": "api-koa-typescript-starter",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "api-koa-typescript-starter",
   "scripts": {
     "dev": "ts-node-dev --no-deps -r tsconfig-paths/register --transpileOnly src/server.ts --program=tsnode",
     "test": "npm run eslint && npm run tscheck && npm run test:cov",
     "test:r": "mocha -r tsconfig-paths/register -r ts-node/register/transpile-only -t 15s src/**/*.spec.ts --node_env=test",
     "test:w": "mocha -r tsconfig-paths/register -r ts-node/register/transpile-only --reporter min -t 15s --watch-extensions ts --watch src/**/*.spec.ts --node_env=test",
     "test:cov": "nyc mocha -r tsconfig-paths/register -r ts-node/register/transpile-only -t 15s src/**/*.spec.ts --node_env=test",
-    "test:d": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register/transpile-only node_modules/mocha/bin/_mocha --no-timeouts --watch-extensions ts --watch src/**/*.spec.ts --node_env=test"
+    "test:d": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register/transpile-only node_modules/mocha/bin/_mocha --no-timeouts --watch-extensions ts --watch src/**/*.spec.ts --node_env=test",
+    "tscheck": "echo tscheck... && tsc --noEmit",
+    "tscheck:w": "npm run tscheck -- --watch"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["koa-starter"],
   "license": "ISC",
   "dependencies": {
     "koa": "^2.6.2",
@@ -30,5 +30,13 @@
     "ts-node-dev": "^1.0.0-pre.31",
     "tsconfig-paths": "^3.7.0",
     "typescript": "^3.2.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unlight/api-koa-typescript-starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/unlight/api-koa-typescript-starter/issues"
+  },
+  "homepage": "https://github.com/unlight/api-koa-typescript-starter#readme"
 }

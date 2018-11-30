@@ -3,7 +3,7 @@ import * as expect from 'expect';
 
 describe('home.service', () => {
 
-    it('Hello must be in message', async () => {
+    it('hello must be in message', async () => {
         expect(await homeService.getGreetings()).toContain('Hello');
     });
 });
