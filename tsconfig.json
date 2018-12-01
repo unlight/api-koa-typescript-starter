@@ -3,7 +3,10 @@
     "module": "commonjs",
     "target": "es2017",
     "outDir": "./dist",
-    "sourceMap": true
+    "sourceMap": true,
+    "lib": [
+      "esnext"
+    ]
   },
   "include": [
     "src/**/*.ts"

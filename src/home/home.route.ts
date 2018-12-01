@@ -3,7 +3,7 @@ import { inject } from 'njct';
 import { HomeService } from './home.service';
 
 export async function homeRoute(context: IRouterContext) {
-    const service = inject(HomeService.token, HomeService.getInstance);
+    const service = inject(HomeService, inject.type.service);
     const result = await service.getGreetings();
     context.body = { data: result };
 }

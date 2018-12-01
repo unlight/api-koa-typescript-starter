@@ -3,11 +3,8 @@ import { inject } from 'njct';
 
 export class HomeService {
 
-    static readonly getInstance = () => new HomeService();
-    static readonly token = 'home.service';
-
     constructor(
-        private homeRepository = inject(HomeRepository.token, HomeRepository.getInstance),
+        private homeRepository = inject(HomeRepository, inject.type.service),
     ) { }
 
     async getGreetings() {

@@ -10,7 +10,7 @@ describe('home.service', () => {
     let service: HomeService;
 
     before(() => {
-        injector.mock('home.repository', () => repository);
+        injector.mock(HomeRepository, () => repository);
     });
 
     after(() => {
