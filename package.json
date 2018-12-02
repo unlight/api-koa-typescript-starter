@@ -21,7 +21,7 @@
     "convict": "^4.4.0",
     "koa": "^2.6.2",
     "koa-router": "^7.4.0",
-    "njct": "^5.0.0"
+    "njct": "^7.0.0"
   },
   "devDependencies": {
     "@types/convict": "^4.2.0",

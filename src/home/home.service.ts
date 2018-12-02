@@ -4,7 +4,7 @@ import { inject } from 'njct';
 export class HomeService {
 
     constructor(
-        private homeRepository = inject(HomeRepository, inject.type.service),
+        private homeRepository = inject(HomeRepository),
     ) { }
 
     async getGreetings() {
