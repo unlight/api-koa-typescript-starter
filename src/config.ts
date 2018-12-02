@@ -24,6 +24,11 @@ const schema = {
     secretOrPrivateKey: {
         default: 'secret',
     },
+    connectionString: {
+        doc: 'Database connection config',
+        default: 'mssql://username:password@localhost/database',
+        env: 'CONNECTION_STRING',
+    }
 };
 
 export const config = convict(schema).validate();
