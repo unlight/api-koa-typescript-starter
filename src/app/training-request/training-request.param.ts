@@ -4,3 +4,9 @@ export async function trainingRequestParam(param: string, context: IRouterContex
     context.state.trainingRequest = await ({ trainingRequestId: '3a1fa03f-0240-4ff7-9947-7e603c4b4293' });
     next();
 }
+
+export async function trainingRequestParam2(context, next: () => Promise<any>) {
+    debugger;
+    context.state.trainingRequest = await ({ trainingRequestId: '3a1fa03f-0240-4ff7-9947-7e603c4b4293' });
+    next();
+}
