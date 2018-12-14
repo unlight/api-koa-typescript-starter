@@ -16,9 +16,37 @@ const _ = require('koa-route');
 
 // router.get('/', homeRoute);
 // router.param('trainingRequestId', trainingRequestParam).get('/training-request/:trainingRequestId', useConnection, getTrainingRequest);
-app.use(trainingRequestParam2);
-app.use(getTrainingRequest);
-app.use(async (ctx, next) => { next() });
+
+app.use(async (ctx, next) => {
+    console.log('x1');
+  const start = Date.now();
+  ctx.body = {x: 1};
+  await next();
+  console.log('x1a');
+  ctx.body = {x: '1a'};
+  const ms = Date.now() - start;
+  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
+  // ctx.body = {ok: 1};
+});
+
+app.use(async (ctx, next) => {
+  console.log('x2');
+  ctx.body = {x: 2};
+  await next();
+  console.log('x3');
+  ctx.body = {x: 3};
+});
+
+app.use(async (ctx, next) => {
+  console.log('x4');
+  await next();
+  console.log('x5');
+  ctx.body = {x: 5};
+});
+
+// app.use(trainingRequestParam2);
+// app.use(getTrainingRequest);
+// app.use(async (ctx, next) => { next() });
     // _.get('/training-request/:trainingRequestId', compose([trainingRequestParam2 as any, getTrainingRequest])))
 
 // app.use(router.routes());
