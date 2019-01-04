@@ -5,8 +5,6 @@
 * Mocha
 
 ## TODO
-* use another router
-* handle route param
-* tsql connector
+* validation
 * test for memory leak
 * graphql
