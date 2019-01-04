@@ -7,7 +7,6 @@ export type Mock<T, U = any, V = any, W = any, X = any> = MutableRequired<T>
     & PropertyMock<PropertyMock<PropertyMock<PropertyMock<X>>>>;
 
 import * as koa from 'koa';
-import * as router from 'koa-router';
 
 export type koaMiddleware = Parameters<koa.Middleware>;
-export type routerMiddleware = Parameters<router.IMiddleware>;
+

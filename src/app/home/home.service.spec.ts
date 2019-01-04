@@ -3,6 +3,7 @@ import * as expect from 'expect';
 import * as universalMock from 'universal-mock';
 import { injector } from 'njct';
 import { HomeRepository } from './home.repository';
+import { Mock } from '../../types';
 
 describe('home.service', () => {
 
