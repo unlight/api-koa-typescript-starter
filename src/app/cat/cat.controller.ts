@@ -1,6 +1,8 @@
 import { IRouterContext } from 'koa-tree-router';
 import { inject } from 'njct';
 import { CatService } from './cat.service';
+import { CatCreateValidator } from './cat-create.validator';
+import { ValidationError, HttpStatusError } from 'common-errors';
 
 export async function catBrowse(context: IRouterContext, next: any) {
     const catService = inject(CatService);
@@ -9,7 +11,13 @@ export async function catBrowse(context: IRouterContext, next: any) {
 
 export async function catCreate(context: IRouterContext, next: any) {
     const catService = inject(CatService);
-    // validate
-    const cat =
-    // context.request.body
+    const catCreateValidator = inject(CatCreateValidator);
+    const cat = context.request.body;
+    const validationResult = await catCreateValidator.validateAsync(cat);
+    if (validationResult.isInvalid()) {
+        const err = new HttpStatusError(400);
+        throw err;
+    }
+    const result = await catService.addCat(cat);
+    context.body = result;
 }

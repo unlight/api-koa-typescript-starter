@@ -17,6 +17,7 @@
   "dependencies": {
     "common-errors": "^1.0.5",
     "convict": "^4.4.1",
+    "fluent-ts-validator": "^3.0.2",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-compose": "^4.1.0",
