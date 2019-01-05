@@ -7,7 +7,7 @@ export class TrainingRequestRepository {
     async getById(id: string) {
         const result = await usingConnection(sql => {
             return sql.query`SELECT
-                [TRAINING_REQUEST_PK] as trainingRequestId,
+                lower([TRAINING_REQUEST_PK]) as trainingRequestId,
                 [TRAINING_REQUEST_STATUS_FK] as status,
                 [Date_Created] as dateCreated,
                 [Date_Modified] as dateModified

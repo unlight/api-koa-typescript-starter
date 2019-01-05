@@ -1,11 +1,14 @@
 import { config } from '../../config';
-const sql = require('mssql');
-const connectionString = config.get('connectionString');
+import * as sql from 'mssql';
+import { IResult } from 'mssql';
 
-export async function usingConnection(request: (sql: any) => Promise<any>) {
+const connectionString = config.get('connectionString');
+const connectionPool = new sql.ConnectionPool(connectionString);
+
+export async function usingConnection(request: (pool: sql.ConnectionPool) => Promise<IResult<any>>) {
     try {
-        var pool = await sql.connect(connectionString);
-        var result = await request(sql);
+        var pool = await connectionPool.connect();
+        var result = await request(pool);
     } catch (e) {
         throw e;
     } finally {

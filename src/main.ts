@@ -14,7 +14,7 @@ const router = new Router();
 
 app.use(errorHandler());
 router.get('/', home);
-router.get('/training-request/:trainingRequest', getTrainingRequest);
+router.get('/training-request/:trainingRequestId', getTrainingRequest);
 app.use(router.routes());
 app.listen(config.get('port'), () => {
     console.log(`Server running on port ${config.get('port')}`);

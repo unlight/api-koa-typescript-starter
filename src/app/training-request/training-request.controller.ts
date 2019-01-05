@@ -5,7 +5,7 @@ import { IRouterContext } from 'koa-tree-router';
 
 export async function getTrainingRequest(context: IRouterContext, next: any) {
     const trainingRequestService = inject(TrainingRequestService);
-    const result = await trainingRequestService.getById(context.params.id);
+    const result = await trainingRequestService.getById(context.params.trainingRequestId);
     if (!result) {
         throw new NotFoundError('TrainingRequest');
     }
