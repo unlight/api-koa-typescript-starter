@@ -6,6 +6,7 @@ import { config } from './config';
 import { errorHandler } from './app/errors/errors';
 import { home } from './app/home/home.controller';
 import { getTrainingRequest } from './app/training-request/training-request.controller';
+import { catBrowse } from './app/cat/cat.controller';
 
 injector.provide('config', () => config);
 
@@ -14,6 +15,7 @@ const router = new Router();
 
 app.use(errorHandler());
 router.get('/', home);
+router.get('/cat/browse', catBrowse);
 router.get('/training-request/:trainingRequestId', getTrainingRequest);
 app.use(router.routes());
 app.listen(config.get('port'), () => {
