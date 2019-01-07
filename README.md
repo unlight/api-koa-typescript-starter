@@ -5,6 +5,6 @@
 * Mocha
 
 ## TODO
-* validation
+* validation -> common errors
 * test for memory leak
 * graphql

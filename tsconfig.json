@@ -1,9 +1,19 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
     "target": "es2017",
-    "outDir": "./dist",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strict": true,
+    "noImplicitAny": false,
+    "importHelpers": true,
+    "experimentalDecorators": false,
+    "emitDecoratorMetadata": false,
+    "outDir": "dist",
+    "pretty": true,
+    "removeComments": false,
     "sourceMap": true,
+    "declaration": false,
+    "declarationMap": false,
     "lib": [
       "esnext"
     ],

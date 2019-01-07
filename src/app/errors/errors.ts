@@ -1,19 +1,19 @@
 import * as koaJsonError from 'koa-json-error';
 import * as errors from 'common-errors';
 
-// todo: pattern matching
-function format(err) {
-    let status: number;
+function postFormat(err: Error, result: any) {
+    let status: number | undefined = undefined;
     if (err instanceof errors.NotFoundError) {
         status = 404;
     }
-    if (!status) {
-        return undefined;
+    if (status !== undefined) {
+        result.status = status;
     }
-    err.status = status;
-    return err;
+    return result;
 }
 
 export function errorHandler() {
-    return koaJsonError();
+    return koaJsonError({
+        postFormat,
+    });
 }

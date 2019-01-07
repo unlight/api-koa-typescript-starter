@@ -1,13 +1,15 @@
 import { config } from '../../config';
 import * as sql from 'mssql';
 import { IResult } from 'mssql';
+import { injector, inject } from 'njct';
 
 const connectionString = config.get('connectionString');
-const connectionPool = new sql.ConnectionPool(connectionString);
+export const connectionPool = new sql.ConnectionPool(connectionString);
 
 export async function usingConnection(request: (pool: sql.ConnectionPool) => Promise<IResult<any>>) {
+    let pool;
     try {
-        var pool = await connectionPool.connect();
+        pool = await connectionPool.connect();
         var result = await request(pool);
     } catch (e) {
         throw e;

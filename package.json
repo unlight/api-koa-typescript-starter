@@ -12,7 +12,10 @@
     "test:cov": "nyc mocha -r tsconfig-paths/register -r ts-node/register/transpile-only -t 15s src/**/*.spec.ts --node_env=test",
     "test:d": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register/transpile-only node_modules/mocha/bin/_mocha --no-timeouts --watch-extensions ts --watch src/**/*.spec.ts --node_env=test",
     "tscheck": "echo tscheck... && tsc --noEmit",
-    "tscheck:w": "npm run tscheck -- --watch"
+    "tscheck:w": "npm run tscheck -- --watch",
+    "eslint": "eslint src --ext ts",
+    "eslint:fix": "eslint src --ext \"ts\" --fix",
+    "eslint:w": "chokidar \"src/**/*.ts\" --initial -c \"npm run eslint\""
   },
   "dependencies": {
     "common-errors": "^1.0.5",
