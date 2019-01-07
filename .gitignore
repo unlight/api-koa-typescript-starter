@@ -1,2 +1,9 @@
+/node_modules
+/.idea
+/.awcache
+/.vscode
+/.nyc_output
+*.log
 ~*
-node_modules/
+/dist/
+/dist_*
