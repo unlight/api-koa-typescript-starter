@@ -1,4 +1,4 @@
-export type CustomErrorOptions = { [K in Exclude<keyof CustomError, "stack" | "name">]?: CustomError[K] };
+export type CustomErrorOptions = { [K in Exclude<keyof CustomError, 'stack' | 'name'>]?: CustomError[K] };
 
 export class CustomError extends Error {
 
@@ -7,17 +7,15 @@ export class CustomError extends Error {
     readonly code?: string;
     readonly inner?: Error;
 
-    constructor();
     constructor(options: CustomErrorOptions);
     constructor(...args: any[]);
     constructor(...args: any[]) {
-        let message: string | undefined = undefined;
+        let message: string | undefined;
         let status: number = 0;
         let data: any;
-        let code: string | undefined = undefined;
-        let inner: Error | undefined = undefined;
-        for (let i = 0; i < args.length; i++) {
-            const arg = args[i];
+        let code: string | undefined;
+        let inner: Error | undefined;
+        for (const arg of args) {
             const typeofArg = typeof arg;
             switch (true) {
                 case message !== undefined && typeofArg === 'string': {
@@ -33,11 +31,11 @@ export class CustomError extends Error {
                     inner = arg;
                 } break;
                 case typeofArg === 'object': {
-                    if ('status' in arg) status = arg.status;
-                    if ('message' in arg) message = arg.message;
-                    if ('data' in arg) data = arg.data;
-                    if ('code' in arg) code = arg.code;
-                    if ('inner' in arg) inner = arg.inner;
+                    if ('status' in arg) { status = arg.status; }
+                    if ('message' in arg) { message = arg.message; }
+                    if ('data' in arg) { data = arg.data; }
+                    if ('code' in arg) { code = arg.code; }
+                    if ('inner' in arg) { inner = arg.inner; }
                 } break;
             }
         }
@@ -48,8 +46,8 @@ export class CustomError extends Error {
         this.inner = inner;
         this.name = this.constructor.name;
         Object.setPrototypeOf(this, this.constructor.prototype);
-        if (typeof Error['captureStackTrace'] === 'function') {
-            Error['captureStackTrace'](this, this.constructor);
+        if (typeof Error.captureStackTrace === 'function') {
+            Error.captureStackTrace(this, this.constructor);
         } else {
             this.stack = new Error(this.message).stack;
         }

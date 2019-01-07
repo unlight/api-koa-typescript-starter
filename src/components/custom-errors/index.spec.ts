@@ -101,5 +101,3 @@ describe('NotFoundError:', () => {
         expect(e.name).toBe('NotFoundError');
     });
 });
-
-

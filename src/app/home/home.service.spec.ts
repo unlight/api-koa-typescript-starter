@@ -7,7 +7,7 @@ import { Mock } from '~components/universal-mock';
 
 describe('home.service', () => {
 
-    let repository: Mock<HomeRepository> = universalMock;
+    const repository: Mock<HomeRepository> = universalMock;
     let service: HomeService;
 
     before(() => {

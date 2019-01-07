@@ -9,8 +9,6 @@ import { home } from './app/home/home.controller';
 import { getTrainingRequest } from './app/training-request/training-request.controller';
 import * as cat from './app/cat/cat.controller';
 
-injector.provide('config', () => config);
-
 const app = new Koa();
 const router = new Router();
 

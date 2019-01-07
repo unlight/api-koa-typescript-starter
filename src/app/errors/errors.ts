@@ -1,13 +1,9 @@
 import * as koaJsonError from 'koa-json-error';
-import * as errors from 'common-errors';
+import { CustomError } from '~components/custom-errors';
 
 function postFormat(err: Error, result: any) {
-    let status: number | undefined = undefined;
-    if (err instanceof errors.NotFoundError) {
-        status = 404;
-    }
-    if (status !== undefined) {
-        result.status = status;
+    if (err instanceof CustomError) {
+        result.status = err.status;
     }
     return result;
 }

@@ -25,6 +25,8 @@ module.exports = {
         'no-undef': 0,
         'no-unused-vars': 0,
         'indent': 0,
+        'no-console': 0,
+        'no-dupe-class-members': 0,
         'unicorn/import-index': 0,
         'import/newline-after-import': 0,
         'import/no-duplicates': 1,
@@ -33,7 +35,7 @@ module.exports = {
         'semi': [1, 'always'],
         'tslint/config': [1, {
             configFile: 'tsconfig.json',
-            lintFile: 'tslint.json',
+            lintFile: './tslint.json',
         }],
     }
 };
