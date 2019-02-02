@@ -1,5 +1,5 @@
 import * as koaJsonError from 'koa-json-error';
-import { CustomError } from '~components/custom-errors';
+import { CustomError } from 'errorlings';
 
 function postFormat(err: Error, result: any) {
     if (err instanceof CustomError) {

@@ -19,7 +19,6 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "~components/custom-errors": ["src/components/errorlings"],
       "~components/*": [
         "src/components/*"
       ]
