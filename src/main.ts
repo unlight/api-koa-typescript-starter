@@ -8,7 +8,7 @@ import { errorHandler } from './app/errors/errors';
 import { home } from './app/home/home.controller';
 import { getTrainingRequest } from './app/training-request/training-request.controller';
 import * as cat from './app/cat/cat.controller';
-const { ApolloServer, gql } = require('apollo-server');
+const { ApolloServer, gql } = require('apollo-server-koa');
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`

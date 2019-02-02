@@ -4,7 +4,7 @@
   "private": true,
   "description": "api-koa-typescript-starter",
   "scripts": {
-    "dev": "ts-node-dev --no-deps -r tsconfig-paths/register --transpileOnly src/main.ts --program=tsnode",
+    "dev": "ts-node-dev --no-deps -r clarify -r tsconfig-paths/register --transpileOnly src/main.ts --program=tsnode",
     "dev:d": "node-dev --no-deps -r tsconfig-paths/register -r ts-node/register/transpile-only --inspect src/main.ts --program=tsnode",
     "test": "npm run eslint && npm run tscheck && npm run test:cov",
     "test:r": "mocha -r tsconfig-paths/register -r ts-node/register/transpile-only -t 15s src/**/*.spec.ts --node_env=test",
@@ -18,7 +18,7 @@
     "eslint:w": "watch \"npm run -s eslint\" src"
   },
   "dependencies": {
-    "apollo-server": "2.3.3",
+    "apollo-server-koa": "2.3.3",
     "convict": "4.4.1",
     "errorlings": "1.0.0",
     "fluent-ts-validator": "3.0.2",
@@ -42,6 +42,7 @@
     "@types/mocha": "5.2.5",
     "@types/mssql": "4.0.12",
     "@types/node": "10.12.21",
+    "clarify": "2.1.0",
     "eslint": "5.13.0",
     "eslint-plugin-import": "2.16.0",
     "eslint-plugin-tslint": "3.1.0",
