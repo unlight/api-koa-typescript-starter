@@ -1,7 +1,8 @@
-import { importSchema } from 'graphql-import';
 import { makeExecutableSchema } from 'graphql-tools';
+import { readFileSync } from 'fs';
 
-const typeDefs = importSchema(__dirname + '/main.graphql');
+const typeDefs = readFileSync(`${__dirname}/main.graphql`).toString();
+
 const resolvers = {
     Query: {
         hello: () => 'Hello world! ' + Math.random(),
