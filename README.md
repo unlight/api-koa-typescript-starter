@@ -7,4 +7,4 @@
 ## TODO
 * validation -> common errors
 * test for memory leak
-* graphql
+* graphql (merge resolvers, merge schema)
